@@ -1,0 +1,80 @@
+login as: root
+Keyboard-interactive authentication prompts from server:
+| Password:
+End of keyboard-interactive prompts from server
+Last login: Sat Sep 14 22:19:17 2024 from 192.168.150.104
+
+Welcome to SUSE® Linux Enterprise Server 15 SP2
+for SAP® Business One with SAP HANA!
+
+DLISAPDB01:~ # cd ..
+DLISAPDB01:/ # ./etc/init.d/sapb1servertools stop
+redirecting to systemctl stop .service
+Shutting down SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common)
+                                                                     done
+DLISAPDB01:/ # systemctl stop  b1s
+DLISAPDB01:/ # su - ndbadm
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> ./HDB stop
+Stopping instance using: /usr/sap/NDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 00 -function Stop 400
+
+15.09.2024 12:09:53
+Stop
+OK
+Waiting for stopped instance using: /usr/sap/NDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 00 -function WaitforStopped 600 2
+
+
+15.09.2024 12:09:53
+WaitforStopped
+OK
+hdbdaemon is stopped.
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> exit
+logout
+DLISAPDB01:/ # su - ndbadm
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> ./HDB start
+
+
+StartService
+Impromptu CCC initialization by 'rscpCInit'.
+  See SAP note 1266393.
+OK
+OK
+Starting instance using: /usr/sap/NDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 00 -function StartWait 2700 2
+
+
+15.09.2024 12:10:10
+Start
+OK
+
+15.09.2024 12:13:04
+StartWait
+OK
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> exit
+logout
+DLISAPDB01:/ # ./etc/init.d/sapb1servertools start
+redirecting to systemctl start .service
+Starting up SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common)
+start up mdx reverse proxy.
+                                                                                                                                                                                  done
+DLISAPDB01:/ # systemctl start  b1s
+DLISAPDB01:/ # date
+Sun Sep 15 13:12:07 +04 2024
+DLISAPDB01:/ # date -‌-set=“^C
+DLISAPDB01:/ # timedatectl set-time ‘2024-09-15 13:28:00’
+Invalid number of arguments.
+DLISAPDB01:/ #  set-time ‘2024-09-15 13:28:00’
+If 'set-time' is not a typo you can use command-not-found to lookup the package that contains it, like this:
+    cnf set-time
+DLISAPDB01:/ # time
+
+real    0m0.000s
+user    0m0.000s
+sys     0m0.000s
+DLISAPDB01:/ # date
+Sun Sep 15 13:20:53 +04 2024
+DLISAPDB01:/ # date
+Sun Sep 15 13:24:22 +04 2024
+DLISAPDB01:/ # date --set="13:33:00"
+Sun Sep 15 13:33:00 +04 2024
+DLISAPDB01:/ # date
+Sun Sep 15 13:33:06 +04 2024
+DLISAPDB01:/ # date --set="10:00:00"
