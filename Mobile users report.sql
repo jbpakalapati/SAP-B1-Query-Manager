@@ -7,6 +7,8 @@ Else 'NA' end as "Mobile",
 Case when  T0."Locked" = 'Y' then 'LOCKED'
 when T0."Locked" = 'N' then 'ACTIVE'
 Else 'NA' end as "Locked",
-T0."Department", T0."Branch" 
+(SELECT T2."Name" from OUBR T2 Where T2."Code" =  T0."Branch") as "Branch",
+(SELECT T3."Name" from OUDP T3 Where T3."Code" =  T0."Department") as "Department"
 
-FROM OUSR T0
+
+FROM OUSR T0 ORDER BY T0."MobileUser" DESC
