@@ -1,4 +1,4 @@
-ALTER PROCEDURE SBO_SP_TransactionNotification
+CREATE PROCEDURE SBO_SP_TransactionNotification
 (
 	in object_type nvarchar(20), 				-- SBO Object Type
 	in transaction_type nchar(1),			-- [A]dd, [U]pdate, [D]elete, [C]ancel, C[L]ose
@@ -40,6 +40,65 @@ end if;
 
 
  -----------------------------------------------------------
+
+------------------------------------------------------------------------------IBAN DUPLICATE -------------------------------------------
+Cnt1 := 0; 
+IF :object_type = '2' AND (:transaction_type = 'A' OR :transaction_type = 'U') THEN
+-- Check for duplicate IBANs excluding the current business partner
+SELECT COUNT("CardCode") INTO Cnt1 FROM OCRD WHERE "DflIBAN" = (SELECT "DflIBAN" FROM OCRD WHERE "CardCode" = :list_of_cols_val_tab_del)   
+ AND "CardCode" <> :list_of_cols_val_tab_del;    
+  IF Cnt1 > 0 THEN       
+   error := -30012;         
+   error_message := 'Duplicate IBAN detected! IBAN must be unique across business partners.'; 
+   END IF;
+    END IF;
+ 
+---------------------------------------------------------------------------------------------------------------------------
+-----IBAN must not contain spaces-------------
+
+Cnt1 := 0;							
+IF :object_type = '2' AND (:transaction_type = 'A' OR :transaction_type = 'U') THEN							
+
+    SELECT COUNT(*) 
+    INTO Cnt1 
+    FROM OCRD T0 
+    WHERE T0."CardCode" = :list_of_cols_val_tab_del 
+      AND T0."DflIBAN" LIKE '% %'; -- Check for spaces in IBAN
+
+    IF Cnt1 > 0 THEN							
+        error := 202502;							
+        error_message := 'IBAN must not contain spaces.';							
+    END IF;							
+
+END IF;
+
+-----IBAN must not contain  special characters-------------
+
+Cnt1 := 0;							
+IF :object_type = '2' AND (:transaction_type = 'A' OR :transaction_type = 'U') THEN							
+
+    SELECT COUNT(*) 
+    INTO Cnt1 
+    FROM OCRD T0 
+    WHERE T0."CardCode" = :list_of_cols_val_tab_del 
+      AND (T0."DflIBAN" LIKE '%@%' 
+      OR T0."DflIBAN" LIKE '%!%'
+      OR T0."DflIBAN" LIKE '%#%'
+      OR T0."DflIBAN" LIKE '%$%'
+      OR T0."DflIBAN" LIKE '%^%'
+      OR T0."DflIBAN" LIKE '%&%'
+      OR T0."DflIBAN" LIKE '%*%'
+      OR T0."DflIBAN" LIKE '%(%'
+      OR T0."DflIBAN" LIKE '%)%'); -- Check for all common special characters
+
+    IF Cnt1 > 0 THEN							
+        error := 202501;							
+        error_message := 'IBAN must not contain special characters.';							
+    END IF;							
+
+END IF;
+
+---------------------------------------------------------------------------------------------------------------------------
 
 Cnt1:=0;							
    if :object_type='2' and (:transaction_type ='A'  OR :transaction_type ='U') then							
@@ -210,6 +269,7 @@ group by "Code"order by "Code" asc) ) where "ct">1;
 end if;
 
 ----------------------------A/P Invoice-------------------------------
+/*
  Cnt1:=0;
 							
    if :object_type='18' and (:transaction_type ='A'  OR :transaction_type ='U') then							
@@ -217,13 +277,14 @@ end if;
       Select Count(*) into Cnt1 from PCH1 T0 Inner Join OPCH T1 On T0."DocEntry"=T1."DocEntry" 
            where T1."DocEntry"= :list_of_cols_val_tab_del  and T0."BaseType"<>'20'
 
-        and T1."CANCELED"='N' and T1."DocType"='I';							
+and T1."CANCELED"='N' and T1."DocType"='I';							
  							
       if :Cnt1>0 then	
 	    error := -3024;							
             error_message := 'GRPO is mandatory to add AP Invoice';							
       end if;							
  end if;
+ */
  -----
 Cnt1:=0;
 							
@@ -313,6 +374,121 @@ and T1."CANCELED"='N' and T1."DocType"='I';
  end if;
  ------------------------GRPO----------------------------
 ------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------- 
+--------------------------------Created by - Ajay / Purchase Order / 17022025 ---------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+if :object_type='22' and (:transaction_type ='A'  OR :transaction_type ='U') then
+
+Select Count(*) into Cnt1 
+from OPOR T1
+ Left join POR1 T2 on T1."DocEntry" = T2."DocEntry"
+ left join OPRQ T3 on T2."BaseEntry" = T3."DocEntry" and T2."BaseType" = T3."ObjType" 
+WHERE T1."DocEntry"= :list_of_cols_val_tab_del and  
+T1."DocDate" < T3."DocDate";
+    
+     if :Cnt1 > 0 then
+error := 17022025;
+error_message := 'DocDate is not allowed to be less than Base DocDate'  ;
+end if;                        
+end if;
+---------------------------------------------------------------------------------------------------------------------------
+--------------------------------Created by - Ajay / GRPO / 17022025 ---------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+if :object_type='20' and (:transaction_type ='A'  OR :transaction_type ='U') then
+
+Select Count(*) into Cnt1 
+from OPDN T1
+ Left join PDN1 T2 on T1."DocEntry" = T2."DocEntry"
+ left join OPOR T3 on T2."BaseEntry" = T3."DocEntry" and T2."BaseType" = T3."ObjType" 
+WHERE T1."DocEntry"= :list_of_cols_val_tab_del and  
+T1."DocDate" < T3."DocDate";
+    
+     if :Cnt1 > 0 then
+error := 17022025;
+error_message := 'DocDate is not allowed to be less than Base DocDate'  ;
+end if;                        
+end if;
+---------------------------------------------------------------------------------------------------------------------------
+--------------------------------Created by - Ajay / A/P Invoice / 17022025 ---------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+if :object_type='18' and (:transaction_type ='A'  OR :transaction_type ='U') then
+
+Select Count(*) into Cnt1 
+from OPCH T1
+ Left join PCH1 T2 on T1."DocEntry" = T2."DocEntry"
+ left join OPDN T3 on T2."BaseEntry" = T3."DocEntry" and T2."BaseType" = T3."ObjType" 
+WHERE T1."DocEntry"= :list_of_cols_val_tab_del and  
+T1."DocDate" < T3."DocDate";
+    
+     if :Cnt1 > 0 then
+error := 17022025;
+error_message := 'DocDate is not allowed to be less than Base DocDate'  ;
+end if;                        
+end if;
+---------------------------------------------------------------------------------------------------------------------------
+--------------------------------Created by - Ajay / A/P Invoice / 21022025 ---------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+if :object_type='18' and (:transaction_type ='A'  OR :transaction_type ='U') then
+
+Select Count(*) into Cnt1 
+from PCH1 T1
+ WHERE T1."DocEntry"= :list_of_cols_val_tab_del and  
+T1."BaseEntry" is NULL and T1."AgrNo" is NULL;
+
+     if :Cnt1 > 0 then
+error := 21022025;
+error_message := 'Direct A/P Invoice Entry Prohibited'  ;
+end if;                        
+end if;
+---------------------------------------------------------------------------------------------------------------------------
+--------------------------------Created by - Ajay / A/P Invoice - Blanket Agreement / 27022025 ---------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------
+if :object_type='18' and (:transaction_type ='A'  OR :transaction_type ='U') then
+
+Select Count(*) into Cnt1 
+From OPCH T0
+Left join PCH1 T1 On T0."DocEntry" = T1."DocEntry"
+--------------------------------------------------
+Left join(
+
+Select 
+T0."StartDate"
+,T0."EndDate"
+,T0."BpCode"
+,T1."ItemCode"
+,T1."PlanQty" 
+,ifnull(T2."Quantity",0) as "Quantity"
+,ifnull(T1."PlanQty",0)-Ifnull(T2."Quantity",0) as "OpenQty"
+from OOAT T0
+--------------------------------------------------
+Left join OAT1 T1 On T0."AbsID" = T1."AgrNo"
+--------------------------------------------------
+Left join (
+Select T0."CardCode",T1."ItemCode",Sum(T1."Quantity") "Quantity" from OPCH T0
+Left Join PCH1 T1 on T0."DocEntry" = T1."DocEntry"
+
+Left join (Select T0."StartDate",T0."EndDate",T0."BpCode",T1."ItemCode" from OOAT T0
+Left join OAT1 T1 On T0."AbsID" = T1."AgrNo"
+Where T0."Status" = 'A' ) T2 on T0."CardCode" = T2."BpCode" and T1."ItemCode" = T2."ItemCode"
+
+Where T1."DocDate" between T2."StartDate" and T2."EndDate"
+Group BY T0."CardCode",T1."ItemCode"
+) T2 on T0."BpCode" = T2."CardCode" and T1."ItemCode" = T2."ItemCode"
+--------------------------------------------------
+Where T0."Status" = 'A' 
+
+)T2 on T2."BpCode" = T0."CardCode" and T2."ItemCode" = T1."ItemCode"
+--------------------------------------------------
+
+Where T0."DocEntry" = :list_of_cols_val_tab_del
+and T1."Quantity" > T2."OpenQty";
+    
+     if :Cnt1 > 0 then
+error := 27022025;
+error_message := 'A/P Invoice Quantity Exceeds Blanket Agreement Limit'  ;
+end if;                        
+end if;
+---------------------------------------------------------------------------------------------------------------------------
 -- Select the return values
 select :error, :error_message FROM dummy;
 

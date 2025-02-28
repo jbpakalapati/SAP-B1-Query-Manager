@@ -1,0 +1,144 @@
+login as: root
+Keyboard-interactive authentication prompts from server:
+| Password:
+End of keyboard-interactive prompts from server
+Last login: Wed Jan 29 17:07:10 2025 from 192.168.150.104
+
+Welcome to SUSE® Linux Enterprise Server 15 SP2
+for SAP® Business One with SAP HANA!
+
+DLISAPDB01:~ # ls
+.ICEauthority  .config  .java     .sdb      Documents  Public     bin
+.Xauthority    .dbus    .kbd      .veeam    Downloads  SAP        exit
+.bash_history  .gnupg   .local    .viminfo  Music      Templates  tmp
+.cache         .hdb     .mozilla  Desktop   Pictures   Videos
+DLISAPDB01:~ # cd ..
+DLISAPDB01:/ # ./etc/init.d/sapb1servertools
+Usage: ./etc/init.d/sapb1servertools {start|stop|status|restart}
+DLISAPDB01:/ # ./etc/init.d/sapb1servertools status
+Checking for SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common/tomcat)
+Not running, but PID file (/usr/sap/SAPBusinessOne/Common/sapb1servertools.pid)        exists
+Checking for SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common/tomcat)
+Not running, but PID file (/usr/sap/SAPBusinessOne/Common/sapb1servertools.pid)        exists
+DLISAPDB01:/ # ./etc/init.d/sapb1servertools restart
+redirecting to systemctl restart .service
+Restart service SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common)Shut       ting down SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common)
+                                                                     done
+Starting up SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common)
+start up mdx reverse proxy.
+                                                                      done
+DLISAPDB01:/ # ./etc/init.d/sapb1servertools stop
+redirecting to systemctl stop .service
+Shutting down SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common)
+ 4941 ?        00:02:05 java
+Waiting for process 4941 to exit
+ 4941 ?        00:02:05 java
+Waiting for process 4941 to exit
+ 4941 ?        00:02:05 java
+Waiting for process 4941 to exit
+ 4941 ?        00:02:05 java
+Waiting for process 4941 to exit
+ 4941 ?        00:02:05 java
+Killing process which didn't stop after 3 seconds
+kill mdx proxy process
+                                                                            done
+DLISAPDB01:/ # su - nbadm
+su: user nbadm does not exist
+DLISAPDB01:/ # su - ndbadm
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> ./HDB
+Usage: ./HDB { start|stop|reconf|restart|version|info|proc|admin|kill|kill-<sig>|term }
+  kill or kill-9 should never be used in productive environment!
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> ./HDB info
+USER          PID     PPID  %CPU        VSZ        RSS COMMAND
+ndbadm       5240     5239   0.0      17632       7492 -sh
+ndbadm       5334     5240   9.0      13992       3856  \_ /bin/sh ./HDB info
+ndbadm       5367     5334   0.0      34624       3668      \_ ps fx -U ndbadm -o user:
+ndbadm       3530        1   0.0     370448      28524 /usr/sap/NDB/HDB00/exe/sapstarts
+ndbadm       3235        1   0.0      72108       7712 /usr/lib/systemd/systemd --user
+ndbadm       3241     3235   0.0     119228       2688  \_ (sd-pam)
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> ./HDB stop
+hdbdaemon will wait maximal 300 seconds for NewDB services finishing.
+Stopping instance using: /usr/sap/NDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 00 -function Stop 400
+
+01.02.2025 07:10:43
+Stop
+OK
+Waiting for stopped instance using: /usr/sap/NDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 00 -function WaitforStopped 600 2
+
+
+01.02.2025 07:10:43
+WaitforStopped
+OK
+hdbdaemon still running, wait more...
+hdbdaemon has stopped now.
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> ./HDB start
+
+
+StartService
+Impromptu CCC initialization by 'rscpCInit'.
+  See SAP note 1266393.
+OK
+OK
+Starting instance using: /usr/sap/NDB/SYS/exe/hdb/sapcontrol -prot NI_HTTP -nr 00 -function StartWait 2700 2
+
+
+01.02.2025 07:11:00
+Start
+OK
+
+01.02.2025 07:14:00
+StartWait
+OK
+ndbadm@DLISAPDB01:/usr/sap/NDB/HDB00> exit
+logout
+DLISAPDB01:/ # ./etc/init.d/sapb1servertools status
+Checking for SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common/tomcat)
+./etc/init.d/sapb1servertools running ( 1828 /usr/sap/SAPBusinessOne/Common/jre/bin/java -jar /usr/sap/SAPBusinessOne/Authenti
+ 1829 /usr/sap/SAPBusinessOne/Common/jre/bin/java -jar /usr/sap/SAPBusinessOne/GatewayS
+ 2007 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2008 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2009 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2014 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2015 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2018 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2019 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2021 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2023 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2025 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2026 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2028 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2847 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2857 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2859 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2860 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn) but no PID file exists
+Checking for SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common/tomcat)
+./etc/init.d/sapb1servertools running ( 1828 /usr/sap/SAPBusinessOne/Common/jre/bin/java -jar /usr/sap/SAPBusinessOne/Authenti
+ 1829 /usr/sap/SAPBusinessOne/Common/jre/bin/java -jar /usr/sap/SAPBusinessOne/GatewayS
+ 2007 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2008 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2009 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2014 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2015 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2018 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2019 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2021 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2023 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2025 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2026 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2028 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2847 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2857 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2859 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn
+ 2860 /usr/sap/SAPBusinessOne/Common/httpd/bin/httpd -k start -f /usr/sap/SAPBusinessOn) but no PID file exists
+DLISAPDB01:/ # ./etc/init.d/sapb1servertools start
+redirecting to systemctl start .service
+Starting up SAP BusinessOne ServerTools (/usr/sap/SAPBusinessOne/Common)
+start up mdx reverse proxy.
+                                                                            done
+DLISAPDB01:/ # systemctl start b1s
+DLISAPDB01:/ # date
+Sat Feb  1 07:15:52 +04 2025
+DLISAPDB01:/ # ^C
+DLISAPDB01:/ # ^C
+DLISAPDB01:/ # ^C
+DLISAPDB01:/ #
