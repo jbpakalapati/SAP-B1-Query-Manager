@@ -469,7 +469,7 @@ Left Join PCH1 T1 on T0."DocEntry" = T1."DocEntry"
 
 Left join (Select T0."StartDate",T0."EndDate",T0."BpCode",T1."ItemCode" from OOAT T0
 Left join OAT1 T1 On T0."AbsID" = T1."AgrNo"
-Where T0."Status" = 'A' ) T2 on T0."CardCode" = T2."BpCode" and T1."ItemCode" = T2."ItemCode"
+Where T0."Status" = 'A') T2 on T0."CardCode" = T2."BpCode" and T1."ItemCode" = T2."ItemCode"
 
 Where T1."DocDate" between T2."StartDate" and T2."EndDate"
 Group BY T0."CardCode",T1."ItemCode"
@@ -485,7 +485,7 @@ and T1."Quantity" > T2."OpenQty";
     
      if :Cnt1 > 0 then
 error := 27022025;
-error_message := 'A/P Invoice Quantity Exceeds Blanket Agreement Limit'  ;
+error_message := 'A/P Invoice Quantity Exceeds Blanket Agreement Limit';
 end if;                        
 end if;
 ---------------------------------------------------------------------------------------------------------------------------
