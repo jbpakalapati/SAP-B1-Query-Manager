@@ -1,0 +1,88 @@
+﻿Code,Name,ActiveAccount,FatherAccountKey
+AcctCode,AcctName,Postable,FatherNum
+66,Operating Costs,tNO,600000000000000
+611, General & Administrative Expenses,tNO,66
+6111, Salary & Benefits,tNO,611
+61110001, Basic Salaries & Allowances,tYES,6111
+61110002, Bonus Expenses,tYES,6111
+61110003, Overtime Expense,tYES,6111
+61110004, Leave Salary Expense,tYES,6111
+61110005, Staff Pension,tYES,6111
+61110006, Annual Staff Tickets,tYES,6111
+61110007, Staff Accommodation Allowances,tYES,6111
+61110008, Other Staff Benefits,tYES,6111
+61110009, Gratuity Expense,tYES,6111
+61110010, Education Allowances,tYES,6111
+61110011, Wages Temp Staff,tYES,6111
+61110012, Staff Salary Allowance,tYES,6111
+61110013, Staff Training Expenses,tYES,6111
+61110014, Accrued Leave Days Provision,tYES,6111
+6112, Marketing Expense,tNO,611
+61120001, News Paper Advertisement,tYES,6112
+61120002, Signboards,tYES,6112
+61120003, Advertisement & Branding,tYES,6112
+61120004, Exhibitions & Conferences,tYES,6112
+61120005, Websites,tYES,6112
+61120006, Travelling Expenses,tYES,6112
+6113, Utility Expenses,tNO,611
+61130001, Water And Electricity Expenses,tYES,6113
+61130002, Communication Expenses,tYES,6113
+61130003, Postage & Courier,tYES,6113
+6114, Insurance Expenses,tNO,611
+61140001, Health Insurance,tYES,6114
+61140002, Security Insurance,tYES,6114
+61140003, Vehicle Insurance,tYES,6114
+6115, Rent Expense,tNO,611
+61150001, Company Rent Exp,tYES,6115
+61150002, Warehouse Rent,tYES,6115
+61150003, Car Rental Expenses,tYES,6115
+6116, Legal Fees Expense,tNO,611
+61160001, Employee Visa Expesnes,tYES,6116
+61160002, Professional Fees,tYES,6116
+61160003, Audit Fees,tYES,6116
+61160004, License Fees,tYES,6116
+6117, Miscellaneous Expenses,tNO,611
+61170001, Maintenance Expenses,tYES,6117
+61170002, Fuel Expense,tYES,6117
+61170003, Government fees,tYES,6117
+61170004, Registration Fees,tYES,6117
+61170005, Miscellaneous Expenses,tYES,6117
+61170006, Office Expenses,tYES,6117
+61170007, Food For Staff,tYES,6117
+61170008, TruDoc Health Care,tYES,6117
+61170009, Vehicle Fine,tYES,6117
+61170010, Guest Entertainment Expenses,tYES,6117
+61170011, Rep & Maint – Vehicles,tYES,6117
+61170012, Stationery & Printing,tYES,6117
+61170013, Bad Debts Written Off,tYES,6117
+61170014, Sponsorship Fees,tYES,6117
+61170015, Assist America Asia Limited,tYES,6117
+61170016, Commission,tYES,6117
+61170017, Pantry and Other Expenses,tYES,6117
+61170018, Management Fee,tYES,6117
+61170019, Transportation Expense,tYES,6117
+61170020, IT Software,tYES,6117
+61170021, SOE Expenses,tYES,6117
+61170022, IT Consumables,tYES,6117
+61170023, Interest Expense on Lease,tYES,6117
+6118, Depreciation Expense,tNO,611
+61180001, Depreciation on Office Equipments,tYES,6118
+61180002, Depreciation on F & F,tYES,6118
+61180003, Depreciation on Leasehold properties,tYES,6118
+61180004, Depreciation on Vehicles,tYES,6118
+61180005, Depreciation on Software,tYES,6118
+61180006, Depreciation on Computers,tYES,6118
+61180007, Amortisation of website,tYES,6118
+61180008, Amortisation of Liscense,tYES,6118
+61180009, Depreciation ROU,tYES,6118
+61180010, Depreciation on Building,tYES,6118
+61180011, Depreciation on Kitchen Equipements,tYES,6118
+6119, Bank Expenses,tNO,611
+61190001, Bank Charges,tYES,6119
+61190002, Interest on Vehicle Loan,tYES,6119
+61190003, Credit Card Charges,tYES,6119
+61190004, Interest on Bank Facillity,tYES,6119
+61190005, Int. on Vehicle Loan,tYES,6119
+61190006, Interest on Loan,tYES,6119
+61190007, Realised Foreign Exchange Losses,tYES,6119
+61190008, Unrealised Foreign Exchange Losses,tYES,6119

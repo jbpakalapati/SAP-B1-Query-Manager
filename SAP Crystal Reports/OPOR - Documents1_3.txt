@@ -1,0 +1,3 @@
+DocNum	DocEntry
+DocNum	DocEntry
+603023	16664

@@ -1,0 +1,23 @@
+﻿Code,Name,ActiveAccount,FatherAccountKey
+AcctCode,AcctName,Postable,FatherNum
+5,Cost of Sales,tNO,500000000000000
+51, Materials Expense,tNO,5
+511, Inventory Cost  Cost of Sales,tNO,51
+5111, Inventory Cost  Cost of Sales,tNO,511
+51110001, Inventory  COGS,tYES,5111
+51110002, Materials  Purchase Price Gains/looses,tYES,5111
+51110003, Stock Revaluation Gains,tYES,5111
+51110004, Stock Revaluation Losses,tYES,5111
+51110005, Stock Difference Gains,tYES,5111
+51110006, Stock Difference Losses,tYES,5111
+51110007, Inventory   COGS Others,tYES,5111
+51110008, Inventory   COGS Others without Margin,tYES,5111
+52, Other COGS,tNO,5
+521, Other COGS,tNO,52
+5211, Other COGS,tNO,521
+52110001, Shipping Cost,tYES,5211
+52110002, Customs Cost,tYES,5211
+52110003, Storage Cost,tYES,5211
+52110004, Registration Fees,tYES,5211
+52110005, Transportation Expenses,tYES,5211
+52110006, Membership Assistance,tYES,5211

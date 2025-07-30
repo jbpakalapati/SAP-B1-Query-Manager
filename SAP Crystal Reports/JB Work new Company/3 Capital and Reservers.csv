@@ -1,0 +1,29 @@
+﻿Code,Name,ActiveAccount,FatherAccountKey
+AcctCode,AcctName,Postable,FatherNum
+3,Capital and Reserves ,tNO,300000000000000
+31, Equity & Retained Earning,tNO,3
+311, Equity,tNO,31
+3111, Owner Equity,tNO,311
+31110001, Owner Current Account,tYES,3111
+31110002, Owner Equity,tYES,3111
+32, Profit & Loss,tNO,3
+321, Retained Earnings,tNO,32
+3211, Retained Earnings,tNO,321
+32110001, Retained Earnings,tYES,3211
+32110002, Period End Closing,tYES,3211
+32110003, Revaluation reserve Account,tYES,3211
+33, Reconciliation Account,tNO,3
+331, Reconciliation Account,tNO,33
+3311, Reconciliation Account,tNO,331
+33110001, Reconciliation Account,tYES,3311
+34, Opening Balance,tNO,3
+341, Opening Balance,tNO,34
+3411, Opening Balance,tNO,341
+34110001, Opening Inventory,tYES,3411
+34110002, Opening Customer,tYES,3411
+34110003, Opening Vendor,tYES,3411
+34110004, Opening GL,tYES,3411
+35, Statutory Reserve,tNO,3
+351, Statutory Reserve,tNO,35
+3511, Statutory Reserve,tNO,351
+35110001, Statutory Reserve,tYES,3511

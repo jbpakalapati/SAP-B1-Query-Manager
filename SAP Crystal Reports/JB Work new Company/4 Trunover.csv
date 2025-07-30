@@ -1,0 +1,17 @@
+﻿Code,Name,ActiveAccount,FatherAccountKey
+AcctCode,AcctName,Postable,FatherNum
+4,Cost of Sales,tNO,400000000000000
+41, Gross Sales Revenue,tNO,4
+411, Sales Revenue,tNO,41
+4111, Revenue,tNO,411
+41110001, Revenue,tYES,4111
+41110002, Miscellaneous Revenue,tYES,4111
+41110003, Support Fund,tYES,4111
+41110004, Other Revenue,tYES,4111
+41110010, Gian on sale of FA,tYES,4111
+41110011, Interest on Deposits,tYES,4111
+42, Sales Discounts,tNO,4
+421, Customer Discounts for Early Payment,tNO,42
+4211, Cash Discounts,tNO,421
+42110001, Cash Discounts,tYES,4211
+42110001 - Cash Discounts,,tYES,4211

@@ -122,7 +122,7 @@ SELECT *  FROM "TADAWI"."@SBO_BIOMETRIC"  T0
 
 
 
-UPDATE "@SBO_BIOMETRIC" set "U_StartDate" = '25.06.01' where "Code" = '1'
+UPDATE "@SBO_BIOMETRIC" set "U_StartDate" = '2025.07.01' where "Code" = '1'
 
 
 update "DUBAILIMITEDINV"."@SBO_BIOMETRIC"  T0 SET T0."U_StartDate" = '2025.07.01' where T0."Code" = '1'

@@ -1,0 +1,53 @@
+﻿Code,Name,ActiveAccount,FatherAccountKey
+AcctCode,AcctName,Postable,FatherNum
+211, Account Payable,tNO,21
+2111, Trade Creditors,tNO,211
+21110001, Trade Creditors,tYES,2111
+21110002, Trade Creditors Accrued Expanse & Other Payables,tYES,2111
+21110003, PDC Issued,tYES,2111
+21110004, Advances from Customers,tYES,2111
+21110005, Down Payment Made Interim Account,tYES,2111
+21110006, VAT Output 5 %,tYES,2111
+21110007, VAT Output 0 %,tYES,2111
+21110008, Exempt Output,tYES,2111
+21110009, VAT Payable,tYES,2111
+212, Provisions,tNO,21
+2121, Provisions,tNO,212
+21210001, Gratuity,tYES,2121
+21210002, Leave Salary Provision,tYES,2121
+21210003, Air Ticket,tYES,2121
+21210004, Provisions  others,tYES,2121
+21210005, Educational Allowance,tYES,2121
+21210006, Staff Pension Provision,tYES,2121
+21210007, Lease Liabilities,tYES,2121
+21210008, Accured Revenue,tYES,2121
+21210009, Accrued Leave Days Provision,tYES,2121
+213, Payroll Liabilities,tNO,21
+2131, Payroll Liabilities,tNO,213
+21310001, Salaries Payable,tYES,2131
+21310002, Overtime Payable,tYES,2131
+21310003, Employees Commission,tYES,2131
+21310004, Annual Leave payable,tYES,2131
+21310005, Gratuity Payable,tYES,2131
+21310006, Air Ticket Payable,tYES,2131
+214, Bank Borrowings,tNO,21
+2141, Bank Borrowings,tNO,214
+21410001, Vehicle Loan,tYES,2141
+215, Accruals & Deferred Income,tNO,21
+2151, Accruals & Deferred Income,tNO,215
+21510001, Freight Clearing Account,tYES,2151
+21510002, Goods Received Not Invoiced (GRNI) Clearing,tYES,2151
+21510003, Accrued Contract Services / Others,tYES,2151
+216, Related parties,tNO,21
+2161, Related parties,tNO,216
+21610001, Due to related parties,tYES,2161
+21610002, Due to related parties Lavender Restaurant,tYES,2161
+21610003, Due to related parties  HP FM,tYES,2161
+21610004, Due to related parties  Dubai Limited nvestment,tYES,2161
+21610005, Due to related parties  Lavender City Laundry,tYES,2161
+21610006, Due to related parties  Al Maha Catering,tYES,2161
+21610007, Due to related parties  Apar Investments,tYES,2161
+21610008, Due to related parties  NU Foods,tYES,2161
+21610009, Due to related parties  Apar Tours,tYES,2161
+221, Shareholders Loan,tNO,22
+2211, Bank Loans & Overdrafts,tNO,221

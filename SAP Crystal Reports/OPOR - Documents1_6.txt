@@ -1,0 +1,3 @@
+DocNum	Series
+DocNum	Series
+603023	196

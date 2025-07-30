@@ -1,0 +1,100 @@
+﻿Code,Name,ActiveAccount,FatherAccountKey
+AcctCode,AcctName,Postable,FatherNum
+111, Tangible Assets,tNO,11
+1111, Land & Buildings,tNO,111
+11110001, Buildings Cost,tYES,1111
+11110002, Building Accumulated Depreciation,tYES,1111
+11110003, Right of use Assets,tYES,1111
+11110004, ROU  Accumulated Depreciation,tYES,1111
+1112, Motor Vehicles,tNO,111
+11120001, Vehicles Cost,tYES,1112
+11120002, Vehicles Accumulated Depreciation,tYES,1112
+1113, Fixtures Fittings Tools & Equipment,tNO,111
+11130001, Furniture & Fixtures Cost,tYES,1113
+11130002, F & F Accumulated Depreciation,tYES,1113
+11130003, Leasehold Improvements,tYES,1113
+11130004, Leasehold Improvements Accumulated Depreciation,tYES,1113
+11130005, Office Equipment Cost,tYES,1113
+11130006, Office Equipment Accumulated Depreciation,tYES,1113
+11130007, Kitchen Equipements,tYES,1113
+11130008, Kitchen Equipements Accumulated Depreciation,tYES,1113
+1114, Computer & IT Equipment,tNO,111
+11140001, Computer,tYES,1114
+11140002, Computer Accumulated Depreciation,tYES,1114
+112, Intangible Assets,tNO,11
+1121, Software & Licences,tNO,112
+11210001, Software Cost,tYES,1121
+11210002, Software Accumulated Amortisation,tYES,1121
+11210003, Licences,tYES,1121
+11210004, License Accumulated Amortisation,tYES,1121
+11210005, Websites & Mobile App,tYES,1121
+11210006, Website Accumulated Amortisation,tYES,1121
+113, Investments,tNO,11
+1131, Investments,tNO,113
+121, Stocks,tNO,12
+1211, Inventory,tNO,121
+12110001, Inventory,tYES,1211
+12110002, Inventory Goods Clearing,tYES,1211
+12110003, Stock In transit,tYES,1211
+122, Account Receivable,tNO,12
+1221, Trade Receivable,tNO,122
+12210001, Trade Debtors,tYES,1221
+12210002, Provisions For Doubtful Debts,tYES,1221
+12210003, Provisions For Doubtful Debts,tYES,1221
+12210004, Contract Assets,tYES,1221
+1222, Receivable from Related Parties,tNO,122
+12220001, Receivable from Related Party,tYES,1222
+12220002, Receivable from Related Party Al Maha Catering,tYES,1222
+12220003, Receivable from Related Party  Lavender City Laundry,tYES,1222
+12220004, Receivable from Related Party  Lavender Restaurant,tYES,1222
+12220005, Receivable from Related Party  Teletronics,tYES,1222
+12220006, Receivable from Related Party  NU Foods Restaurant,tYES,1222
+12220007, Receivable from Related Party  LYF Coffee Shops,tYES,1222
+12220008, Receivable from Related Party  Dubai Limited Investment,tYES,1222
+12220009, Receivable from Related Party  HP FM,tYES,1222
+12220010, Receivable from Related Party  Apar Tours & Travels,tYES,1222
+12220011, Receivable from Related Party  Apar Investments,tYES,1222
+12220012, Receivable from Related Party  A X S Health Software Solutions LLC,tYES,1222
+1223, Accounts Receivable  Others,tNO,122
+12230001, Security Deposit,tYES,1223
+123, Prepayments & Accrued Income,tNO,12
+1231, Prepayments & Advances,tNO,123
+12310001, Prepaid Rent  Expense,tYES,1231
+12310002, Prepaid Insurance Expense,tYES,1231
+12310003, Prepaid Expense,tYES,1231
+12310004, Prepaid Food Licenses.,tYES,1231
+12310005, Down payments Made (Vendors Advance),tYES,1231
+12310007, Low Value Assets,tYES,1231
+12310008, VAT Input 5 %,tYES,1231
+12310009, VAT Input 0 %,tYES,1231
+12310010, Exempt Input,tYES,1231
+12310011, Project Software,tYES,1231
+12310012, Advance paid for Purchase of Assets,tYES,1231
+12310013, Advance to customer,tYES,1231
+124, Employees Advances & Loans,tNO,12
+1241, Employees Advances & Loans,tNO,124
+12410001, Salary Advance to Staff,tYES,1241
+12410002, Employees Loans,tYES,1241
+12410003, SCM Advances,tYES,1241
+125, Cash At Bank and In Hand,tNO,12
+1251, Cash In Hand,tNO,125
+12510001, Petty Cash,tYES,1251
+12510002, Cash In Transit,tYES,1251
+12510003, Cash Advance,tYES,1251
+12510004, Prepaid Card  New,tYES,1251
+1252, Cash at Bank,tNO,125
+12520001, DIB CURRENT 1601,tYES,1252
+12520002, DIB SAVINGS,tYES,1252
+12520003, Bank cheques received,tYES,1252
+12520004, DIB 4001,tYES,1252
+12520005, Credit card,tYES,1252
+12520006, E DIRHAM WALLET,tYES,1252
+12520007, Fixed Deposit,tYES,1252
+12520008, EIB Current 9504,tYES,1252
+12520009, EIB Savings 9505,tYES,1252
+12520010, Prepaid Card,tYES,1252
+12520011, Credit Card EIB,tYES,1252
+126, Bank Deposits,tNO,12
+1261, Bank Deposits,tNO,126
+12610001, Visa Bank Guarantee,tYES,1261
+12610002, Bond Guarantee,tYES,1261

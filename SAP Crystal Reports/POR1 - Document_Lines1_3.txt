@@ -1,0 +1,3 @@
+ParentKey	LineNum	LineStatus
+DocNum	LineNum	LineStatus
+603023	9	C

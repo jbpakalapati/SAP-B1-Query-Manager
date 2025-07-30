@@ -1,0 +1,10 @@
+﻿Code,Name,ActiveAccount,FatherAccountKey
+AcctCode,AcctName,Postable,FatherNum
+88, Tax on Profit/Loss on Ordinary Activities,tNO,800000000000000
+811,Tax Expense,tNO,88
+8111,Taxes,tNO,811
+8112,Opening Balances,tNO,811
+81110001,Taxes Payable,tYES,8111
+81110002,Taxes Receivable,tYES,8111
+81120001, Opening Balances Payable,tYES,8112
+81120002,Opening Balances G/L,tYES,8112

@@ -267,6 +267,7 @@ Cnt1:=0;
       end if;							
  end if;
  */
+  */
  
 ------------------------Enter Bank details and IBAN number
 Cnt1:=0;							

@@ -1,0 +1,11 @@
+﻿Code,Name,ActiveAccount,FatherAccountKey
+AcctCode,AcctName,Postable,FatherNum
+71,Other Operating Income,tNO,700000000000000
+711, Other Revenue,tNO,71
+7111,Other Income,tNO,711
+71110001,Other Misc Income,tYES,7111
+71110002,Purchase Cash Discount Received,tYES,7111
+71110003,Investments Income,tYES,7111
+71110004,Revaluation of assets income,tYES,7111
+71110005,Realised Foreign Exchange Gains,tYES,7111
+71110006,Unrealised Foreign Exchange Gains,tYES,7111
