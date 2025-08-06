@@ -581,7 +581,6 @@ Cnt1:=0;
  							*/
  		  /*Select Count(*) into Cnt1 from DRF1 T0 Inner Join ODRF T1 On T0."DocEntry"=T1."DocEntry" 
            where T1."CANCELED"='N' and T1."ObjType"='22' GROUP BY T0."BaseDocNum" HAVING COUNT(*)>1;							
- 			
  			*/
  			
  	SELECT Count(*)into Cnt1 FROM ODRF T0 

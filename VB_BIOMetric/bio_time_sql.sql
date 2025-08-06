@@ -126,3 +126,13 @@ UPDATE "@SBO_BIOMETRIC" set "U_StartDate" = '2025.07.01' where "Code" = '1'
 
 
 update "DUBAILIMITEDINV"."@SBO_BIOMETRIC"  T0 SET T0."U_StartDate" = '2025.07.01' where T0."Code" = '1'
+
+
+
+
+
+
+--Crystal report 
+--Suppress Code
+-- for sigature to apprear & disapprear based on ther document approval. 
+{Command.SIGN}='NO'
