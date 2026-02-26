@@ -1,0 +1,1 @@
+SELECT T0."U_empcode",  T0."U_empname", T0."U_Appid" as "Application ID",T1."U_Code", T1."U_dscr", T1."U_LBal",T0."U_Appdate",T1."U_lfdate", T1."U_ltdate", T1."U_ladays", T0."U_AppStat" FROM "@SBO_PRLEVAPPMSTR"  T0 INNER JOIN "@SBO_PRLEVAPPDET0"  T1 ON T0."Code" = T1."Code" WHERE  DAYS_BETWEEN (T0."U_Appdate", CURRENT_DATE) <= 60 order by T0."U_Appdate"
