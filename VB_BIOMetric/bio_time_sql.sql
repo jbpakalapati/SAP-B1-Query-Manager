@@ -119,6 +119,7 @@ update iclock_transaction set punch_time = '2025-05-13 16:53:14.000' where id = 
 
 SELECT *  FROM "TADAWI"."@SBO_BIOMETRIC"  T0
 
+SELECT *  FROM "HPFM"."@SBO_BIOMETRIC"  T0
 
 
 
@@ -207,3 +208,7 @@ Update OPOR T0 SET  T0."DocStatus" = 'C', T0."CANCELED" = 'N'  WHERE T0."DocNum"
 
 --- Leave Applications Report
 SELECT T0."U_empcode",  T0."U_empname", T0."U_Appid" as "Application ID",T1."U_Code", T1."U_dscr", T1."U_LBal",T0."U_Appdate",T1."U_lfdate", T1."U_ltdate", T1."U_ladays", T0."U_AppStat" FROM "@SBO_PRLEVAPPMSTR"  T0 INNER JOIN "@SBO_PRLEVAPPDET0"  T1 ON T0."Code" = T1."Code" AND T0."U_Appdate" >= ADD_DAYS(CURRENT_DATE, -30) AND T0."U_Appdate" <= CURRENT_DATE Order by T0."U_Appdate"
+
+-- Payroll Pre-process 
+
+UPDATE "@SBO_PRCONTROL"  T0 SET T0."U_DatChk" = 2, T0."U_ChkBy" = '', T0."U_ChkDate" ='', T0."U_PrDate" = '', T0."U_PRProcs"=2, T0."U_LAccr" = 2, T0."U_LAAMTJV"=2
